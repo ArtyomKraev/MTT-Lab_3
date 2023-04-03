@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel = "stylesheet" href = "src/css/style.css">
+    <script src="src/js/script.js" defer></script>
+
+    <link rel="shortcut icon" href="src/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="src/icons/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    
+
+    <title>Music Player</title>
+
+</head>
+
+<body>
+
+    <div class="pic-menu">
+        
+        <a id="left" onclick="addImage(-1)">
+            <img src="src/icons/left-arrow.svg"/> 
+        </a>
+
+        <a id="right" onclick="addImage(1)">
+           <img src="src/icons/left-arrow.svg"/>
+        </a>
+
+        <div class="text">the picture</div>
+
+    </div>
+
+    <div class="player-menu"> 
+
+        <div class="info">
+            <div class="track-art"> </div>
+            <div class="track-artist">Artist</div>
+            <div class="track-name">Name</div>
+        </div>
+
+        <div class="slider_container">
+            <div class="current-time">00:00</div>
+             <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+             <div class="total-duration">00:00</div>
+        </div> 
+
+
+        <div class="buttons">
+
+            <div class="prev-track" onclick="prevTrack()">
+                <img src="src/icons/prev-button.svg"/> 
+             </div>
+
+             <div class="playpause-track" onclick="playpauseTrack()">
+                <img class="play" src="src/icons/play.svg"/> 
+             </div>
+
+             <div class="next-track" onclick="nextTrack()">
+                <img src="src/icons/next-button.svg"/> 
+             </div>
+             
+        </div>
+
+        <div id="wave">
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+        </div>  
+
+    </div>
+
+    <div class="image" style="display: block;"> 
+        <div class="text">el hermano</div>
+        <img src="src/img/abstract-firework-background.jpg" />
+    </div>
+
+    <div class="image"> 
+        <div class="text">la lluvia</div>
+        <img src="src/img/abstract-red-oil-painting.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">el cuerno</div>
+        <img src="src/img/foam-deep-blue-colored-liquid.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">los abuelos</div>
+        <img src="src/img/illuminated-red-abstract-firework.jpg" /> 
+    </div>
+
+    <div class="image">
+        <div class="text">la cama</div>
+        <img src="src/img/imaginatory-lush-fractal-abstract-background.jpg" />
+    </div>
+
+    <div class="image"> 
+        <div class="text">el hermano</div>
+        <img src="src/img/launched-green-color-powder-explosion-black-background.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">la coliflor</div>
+        <img src="src/img/light-streak-lines-background-2.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">el pavo</div>
+        <img src="src/img/light-streak-lines-background-3.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">la mosca</div>
+        <img src="src/img/light-streak-lines-background.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">la trompa</div>
+        <img src="src/img/painted-wall-is-plastered-black-blue-line-is-texture-cut-background.jpg"/> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">la uva</div>
+        <img src="src/img/pieces-cut-red-meat-lie-each-other.jpg" /> 
+    </div>
+
+    <div class="image"> 
+        <div class="text">el techo</div>
+        <img src="src/img/splash-white-foam.jpg" /> 
+    </div> 
+
+
+</body>
+
+</html>
