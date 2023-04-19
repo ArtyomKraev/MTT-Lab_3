@@ -47,8 +47,6 @@ let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
-let wave = document.getElementById('wave');
-
 const music_list = [
     {
         img : 'src/img/72-seasons-single_cover.jpg',
@@ -94,6 +92,45 @@ function loadTrack(track_index){
     curr_track.addEventListener('ended', nextTrack);
 }
 
+let num, array, myElements, analyser, src, height, context;
+
+num = 14;
+
+myElements = document.getElementsByClassName('stroke');
+
+function preparation()
+{
+    context = new AudioContext();
+    analyser = context.createAnalyser();
+    src = context.createMediaElementSource(curr_track);
+    src.connect(analyser);
+    analyser.connect(context.destination);
+    loop();
+}
+
+function loop() 
+{
+    if(!curr_track.paused)
+    {
+        window.requestAnimationFrame(loop);
+    }
+
+    array = new Uint8Array(num*2);
+    analyser.getByteFrequencyData(array);
+
+    for(var i = 0 ; i < num ; i++)
+    {
+        height = array[i+num];
+        myElements[i].style.height = height - 125 + '%';
+
+        if(curr_track.paused)
+        {
+            myElements[i].style.height = 0 + '%';
+        }
+    }
+}
+
+
 function reset(){
     curr_time.textContent = "00:00";
     total_duration.textContent = "00:00";
@@ -104,15 +141,18 @@ function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
+    if(!context)
+    {
+        preparation();
+    }
     curr_track.play();
     isPlaying = true;
-    wave.classList.add('loader');
     playpause_btn.innerHTML = '<img class="pause"  src="src/icons/pause.svg"/> ';
+    loop();
 }
 function pauseTrack(){
     curr_track.pause();
     isPlaying = false;
-    wave.classList.remove('loader');
     playpause_btn.innerHTML = '<img class="play" src="src/icons/play.svg"/> ';
 }
 function nextTrack(){
